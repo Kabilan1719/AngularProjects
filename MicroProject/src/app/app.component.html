@@ -1,0 +1,119 @@
+<nav class="imag">
+
+  <h1 class="display-5">Bakery Records</h1>
+  <div class="container-fluid d-flex">
+  <div class="formss">
+  
+  <form class="row g-3" #myForm="ngForm" style="padding-left: 120px;">
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Product Id</label>
+        <input type="text" name="id" #id="ngModel" ngModel class="form-control" id="inputEmail4" required pattern="[0-9 ]+" [(ngModel)]="id1">
+        <div *ngIf="id.touched">
+          <div *ngIf="id.errors?.['required']">
+            <font color="blue">ProductId Required</font>
+          </div>
+          <div *ngIf="id.errors?.['pattern']">
+            <font color="blue">Invalid ProductId</font>
+          </div>
+        </div>   
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Product Name</label>
+        <input type="text" name="name" #name="ngModel" ngModel class="form-control" id="inputPassword4" required pattern="[a-z ]+" [(ngModel)]="name1">
+        <div *ngIf="name.touched">
+          <div *ngIf="name.errors?.['required']">
+            <font color="blue">ProductName Required</font>
+          </div>
+          <div *ngIf="name.errors?.['pattern']">
+            <font color="blue">Invalid ProductName</font>
+          </div>
+        </div> 
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Product Description </label>
+        <input type="text" name="Dis" #Dis="ngModel" ngModel class="form-control" id="inputAddress" required pattern="[a-z ]+" [(ngModel)]="Dis1">
+        <div *ngIf="Dis.touched">
+          <div *ngIf="Dis.errors?.['required']">
+            <font color="blue">Product Discription Required</font>
+          </div>
+          <div *ngIf="Dis.errors?.['pattern']">
+            <font color="blue">Invalid Product Discription</font>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label">Available Quantity</label>
+        <input type="text" name="aval" #aval="ngModel" ngModel  class="form-control" id="inputCity" required pattern="[0-9 ]+" [(ngModel)]="aval1">
+        <div *ngIf="aval.touched">
+          <div *ngIf="aval.errors?.['required']">
+            <font color="blue">Product Available Required</font>
+          </div>
+          <div *ngIf="aval.errors?.['pattern']">
+            <font color="blue">Invalid Product Available</font>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">Quantity</label>
+        <select id="inputState" name="quan" #quan="ngModel" ngModel class="form-select" required pattern="[1-5 ]" [(ngModel)]="quan1">
+          <option selected>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div *ngIf="quan.touched">
+        <div *ngIf="quan.errors?.['required']">
+          <font color="blue">Product Quantity Required</font>
+        </div>
+        <div *ngIf="quan.errors?.['pattern']">
+          <font color="blue">Invalid Product Quantity</font>
+        </div>
+      </div>
+    </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Price</label>
+        <input type="text" name="price" #price="ngModel" ngModel class="form-control" id="inputZip" required pattern="[$0-9 ]+" [(ngModel)]="price1">
+        <div *ngIf="price.touched">
+          <div *ngIf="price.errors?.['required']">
+            <font color="blue">Price Required</font>
+          </div>
+          <div *ngIf="price.errors?.['pattern']">
+            <font color="blue">Invalid Price</font>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+      </div>
+      <div class="col-9" style="display: flex; justify-content:space-between;">
+        <button type="submit" class="btn btn-primary" (click)="addcart(myForm.value)">Add to Cart</button>
+        <button type="submit" class="btn btn-primary" (click)="updatecart(myForm.value)">Update Cart</button>
+        <button type="submit" class="btn btn-primary" (click)="deletecart(myForm.value)">Delete Cart</button>
+        <button type="submit" class="btn btn-primary" (click)="displaycart()">Display Cart</button>
+      </div>
+      <h6>{{ result }}</h6>
+    </form>
+  </div>
+  <!-- <div class="vr" ></div> -->
+  <div class="listdata " *ngIf="flag">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Product Id</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of bakeryArr">
+      <td>{{ data.id }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.quan }}</td>
+      <td>{{ data.price }}</td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+</nav>

@@ -1,0 +1,28 @@
+{
+  "bakery": [
+    {
+      "id": "101",
+      "name": "Laddoo",
+      "Dis": "Laddoo is very sweet",
+      "aval": "10",
+      "quan": "4",
+      "price": "$5"
+    },
+    {
+      "id": "102",
+      "name": "Bread",
+      "Dis": "Bread",
+      "aval": "10",
+      "quan": "4",
+      "price": "$5"
+    },
+    {
+      "id": "103",
+      "name": "GulabJam",
+      "Dis": "GulabJam is very sweet",
+      "aval": "15",
+      "quan": "2",
+      "price": "$10"
+    }
+  ]
+}
